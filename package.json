@@ -1,0 +1,12 @@
+{
+  "name": "jaws",
+  "version": "0.0.1",
+  "description": "A game engine.",
+  "author": "https://github.com/ippa",
+  "devDependencies": {
+    "grunt-cli": "~0.1.11",
+    "grunt-contrib-uglify": "~0.2.6",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
+
