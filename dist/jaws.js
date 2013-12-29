@@ -1,5 +1,8 @@
-/* Built at 2013-12-29 
-   from https://github.com/abachman/jaws */
+/**
+ * Built at 2013-12-29 9:27:57 PM UTC 
+ * from https://github.com/abachman/jaws 
+ */
+
 /**
  * @namespace JawsJS core functions.
  *
@@ -4245,32 +4248,32 @@ return jaws;
 
 /**
  * @fileOverview A jaws.Audio object that detects and loads supported filetypes
- * 
+ *
  * The jaws.Audio object uses jaws.assets to determine if a particular
  *  reported MIME audio filetype can be played within the current enviroment.
- *  
+ *
  *  Note: If loading fails at any point or no supported types were found,
- *        the 'audio' property is set to null. 
- * 
+ *        the 'audio' property is set to null.
+ *
  * @see jaws.assets.file_type
  * @see jaws.assets.can_play
- * 
+ *
  * @class jaws.Audio
- * @property {array|string|Audio|null}   audio   A string or array of file locations initally; 
+ * @property {array|string|Audio|null}   audio   A string or array of file locations initally;
  *                                               replaced with an Audio object if loading was successful
  *
  * @example
  * var audio = new jaws.Audio({audio: ["file.mp3", "file.ogg"], volume: 1.0});
- * 
+ *
  * audio.play() //Assuming either MP3 or OGG is supported
- *  
- * //Because play(), stop(), and other audio functions will log an error 
- * // if 'audio' is not an Audio object, its load status can be checked too. 
- * 
+ *
+ * //Because play(), stop(), and other audio functions will log an error
+ * // if 'audio' is not an Audio object, its load status can be checked too.
+ *
  * if(audio.isLoaded()) {
- *   audio.play(); 
+ *   audio.play();
  * }
- * 
+ *
  */
 var jaws = (function(jaws) {
 
@@ -4325,9 +4328,10 @@ var jaws = (function(jaws) {
 
     jaws.parseOptions(this, options, this.default_options);
 
+    var type;
     if (this.audio) {
       if (jaws.isString(this.audio)) {
-        var type = jaws.assets.getPostfix(this.audio);
+        type = jaws.assets.getPostfix(this.audio);
         if (jaws.assets.file_type[type] && jaws.assets.can_play[type]) {
           this.setAudio(this.audio);
         } else {
@@ -4337,7 +4341,7 @@ var jaws = (function(jaws) {
       } else if (jaws.isArray(this.audio)) {
         for (var i = 0; i < this.audio.length; i++) {
           if (jaws.isString(this.audio[i])) {
-            var type = jaws.assets.getPostfix(this.audio[i]);
+            type = jaws.assets.getPostfix(this.audio[i]);
             if (jaws.assets.file_type[type] && jaws.assets.can_play[type]) {
               this.setAudio(this.audio[i]);
               break;
@@ -4349,7 +4353,7 @@ var jaws = (function(jaws) {
           jaws.log.warn("jaws.Audio.set: No known or playable MIME filetypes were found.");
           this.audio = null;
         }
-        
+
       } else {
         jaws.log.error("jaws.Audio.set: Passed in 'audio' property is neither a String nor Array");
         this.audio = null;
@@ -4594,6 +4598,7 @@ var jaws = (function(jaws) {
 if (typeof module !== "undefined" && ('exports' in module)) {
   module.exports = jaws.Audio;
 }
+
 var jaws = (function(jaws) {
 /**
  * @class Manages all your Sprites in lists. Makes easy mass-draw() / update() possible among others. Implements Array API. "Field Summary" contains options for the SpriteList()-constructor.

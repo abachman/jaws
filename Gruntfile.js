@@ -17,8 +17,8 @@ module.exports = function (grunt) {
 
     concat: {
       options: {
-        banner: "/* Built at <%= grunt.template.today('yyyy-mm-dd') %> \n" +
-                "   from https://github.com/abachman/jaws */\n"
+        banner: "/**\n * Built at <%= grunt.template.today('UTC:yyyy-mm-dd h:MM:ss TT Z') %> \n" +
+                " * from https://github.com/abachman/jaws \n */\n\n"
       },
       dist: {
         src: ['src/core.js', 'src/sprite.js', 'src/*.js', 'src/extras/*.js'],
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 
     uglify: {
       options: {
-        banner: "/* Built at <%= grunt.template.today('yyyy-mm-dd') %> \n" +
+        banner: "/* Built at <%= grunt.template.today('UTC:yyyy-mm-dd h:MM:ss TT Z') %> \n" +
                 "   from https://github.com/abachman/jaws */\n"
       },
       my_target: {
